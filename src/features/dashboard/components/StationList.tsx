@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery, useQueryClient } from 'react-query';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
 
-import { Box, Grid, Stack, Typography } from '@mui/material';
-import * as moment from 'moment';
+import { Box, Grid, Stack } from '@mui/material';
+
 import { EnergyPayLoad } from '../../../models';
 import stationAPI from '../../../api/stationAPI';
 import DeviceCard from '../../../components/Device';
@@ -10,11 +10,9 @@ import Chart from './Chart';
 const StationList = () => {
   const [data, setData] = useState<EnergyPayLoad>();
   const [date, setDate] = useState<Date>();
-  // Access the client
-  const queryClient = useQueryClient();
 
   // Queries
-  const query = useQuery(
+  useQuery(
     '/dashboard',
     async () => {
       const res = await stationAPI.getById('Dakhai');
