@@ -20,7 +20,7 @@ const StationList = () => {
       if (res) setDate(new Date(res.msg.date));
     },
     {
-      refetchInterval: 2000,
+      refetchInterval: 5000,
     },
   );
 
